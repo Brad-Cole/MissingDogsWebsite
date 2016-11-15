@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MissingDogsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MissingDogsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="missing">
           <Key>
             <PropertyRef Name="Id" />
@@ -14,12 +14,12 @@
           <Property Name="DogBreed" Type="varchar" MaxLength="50" />
           <Property Name="LastKnownLocation" Type="varchar" MaxLength="50" />
           <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Found" Type="bit" />
         </EntityType>
         <EntityContainer Name="MissingDogsModelStoreContainer">
           <EntitySet Name="missing" EntityType="Self.missing" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MissingDogsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -32,6 +32,7 @@
           <Property Name="DogBreed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LastKnownLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Found" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="MissingDogsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="missings" EntityType="Self.missing" />
@@ -45,6 +46,7 @@
           <EntitySetMapping Name="missings">
             <EntityTypeMapping TypeName="MissingDogsModel.missing">
               <MappingFragment StoreEntitySet="missing">
+                <ScalarProperty Name="Found" ColumnName="Found" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DogName" ColumnName="DogName" />
                 <ScalarProperty Name="DogBreed" ColumnName="DogBreed" />

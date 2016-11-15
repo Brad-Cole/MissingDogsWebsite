@@ -9,6 +9,7 @@
     <Property Name="DogBreed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="LastKnownLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Found" Type="Boolean" />
   </EntityType>
   <EntityContainer Name="MissingDogsEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="missings" EntityType="Self.missing" />

@@ -9,6 +9,7 @@
     <Property Name="DogBreed" Type="varchar" MaxLength="50" />
     <Property Name="LastKnownLocation" Type="varchar" MaxLength="50" />
     <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Found" Type="bit" />
   </EntityType>
   <EntityContainer Name="MissingDogsModelStoreContainer">
     <EntitySet Name="missing" EntityType="Self.missing" Schema="dbo" store:Type="Tables" />

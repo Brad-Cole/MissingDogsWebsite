@@ -1,7 +1,57 @@
-﻿
+﻿@model IEnumerable<thing.Models.missing>
+
 @{
-    ViewBag.Title = "Found and Returned Home!";
+    ViewBag.Title = "Found Animals Animals";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Found Dogs</h2>
+<p>These are Dogs that have been reunited with there owners! YAY!</p>
 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DogName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DogBreed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastKnownLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Found)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogBreed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastKnownLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Found)
+            </td>
+            <td>
+           @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+           @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+
+            </td>
+        </tr>
+    }
+
+</table>

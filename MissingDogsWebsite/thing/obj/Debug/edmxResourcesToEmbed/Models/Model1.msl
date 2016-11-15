@@ -4,6 +4,7 @@
     <EntitySetMapping Name="missings">
       <EntityTypeMapping TypeName="MissingDogsModel.missing">
         <MappingFragment StoreEntitySet="missing">
+          <ScalarProperty Name="Found" ColumnName="Found" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DogName" ColumnName="DogName" />
           <ScalarProperty Name="DogBreed" ColumnName="DogBreed" />

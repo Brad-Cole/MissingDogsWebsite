@@ -17,7 +17,8 @@ namespace thing.Controllers
         // GET: missings
         public ActionResult Index()
         {
-            return View(db.missings.ToList());
+            var lostDogs = db.missings.Where(b => b.Found == false);
+            return View(lostDogs);
         }
 
         // GET: missings/Details/5
@@ -37,7 +38,8 @@ namespace thing.Controllers
         // GET: missing/Found
         public ActionResult Found()
         {
-            return View();
+            var foundDogs = db.missings.Where(b => b.Found == true);
+            return View(foundDogs);
         }
         // GET: missings/Create
         public ActionResult Create()
@@ -64,7 +66,7 @@ namespace thing.Controllers
         // GET: missings/Edit/5
         public ActionResult Edit(int? id)
         {
-            // todo: update this thing to do some other thing 
+            // todo: update this 
 
             if (id == null)
             {
@@ -82,7 +84,7 @@ namespace thing.Controllers
      
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,DogName,DogBreed,LastKnownLocation,ContactNumber")] missing missing)
+        public ActionResult Edit([Bind(Include = "Id,DogName,DogBreed,LastKnownLocation,ContactNumber,Found")] missing missing)
         {
             if (ModelState.IsValid)
             {
